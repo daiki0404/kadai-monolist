@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'ownerships/create'
+
+  get 'ownerships/destroy'
+
   get 'items/new'
 
   get 'sessions/new'
