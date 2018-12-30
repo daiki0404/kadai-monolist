@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: monolist2_production
   username: monolist2
   password: <%= ENV['MONOLIST2_DATABASE_PASSWORD'] %>
