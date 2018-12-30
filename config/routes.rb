@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
   get 'toppages/index'
 
   root to: "toppages#index"
