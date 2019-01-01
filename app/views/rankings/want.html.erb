@@ -1,7 +1,7 @@
 <h1>Wantランキング</h1>
 <% if @items.present?%>
   <div class="row">
-    <% items.each_with_index do |item, index| %>
+    <% @items.each_with_index do |item, index| %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
@@ -10,15 +10,16 @@
             </div>
             <div class="panel-body">
               <p class="item-title"><%=link_to item.name, item%></p>
+              <div class="buttons text-center">
+                <%if logged_in?%>
+                  <%=render "ownerships/want_button", item: item %>
+                  <%=render "ownerships/have_button", item: item %>
+                <%end%>
+              </div>
             </div>
-            <div class="button text-center">
-              <if logged_in?>
-                <%=render "ownerships/want_button"%>
-              <%end%>
+            <div class="panel-footer">
+              <p class="text-center"><%= index+1 %>位: <%=@ranking_counts[item.id]%>Wants</p>
             </div>
-          </div>
-          <div class="panel-footer">
-            <p class="text-center"><%= index+1 %>位: <%=@ranking_count[item.id]%>Wants</p>
           </div>
         </div>
       </div>
